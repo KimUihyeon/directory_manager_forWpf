@@ -20,11 +20,11 @@ namespace folder_clear.Util
             return files;
         }
 
-        public bool delete(String path)
+        public static bool delete(String path)
         {
             try
             {
-                File.Delete(path);
+                FileOperationAPIWrapper.MoveToRecycleBin(path);
                 return true;
             }
             catch (Exception e)

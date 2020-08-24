@@ -1,4 +1,5 @@
-﻿using System;
+﻿using folder_clear.Common.Data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace folder_clear.Data
 {
     public class FileAnalysisResult : ModelBase
     {
+
+        private int key;
         private FileEntity _Data;
         private String _Error;
 
@@ -19,5 +22,7 @@ namespace folder_clear.Data
         public FileEntity Data { get => _Data; set { OnPropertyChanged(); _Data = value; } }
 
         public string Path { get => _Path; set { OnPropertyChanged(); _Path = value; } }
+
+        public int Key { get => key; set => key = value; }
     }
 }

@@ -14,17 +14,26 @@ namespace folder_clear
 
         private Searcher s;
 
-        public void directoryFullScanAsync(String path, Action<List<FileAnalysisResult>> callback)
+        public List<FileAnalysisResult> directoryFullScanAsync(String path)
         {
             this.s = new Searcher();
-            List<FileAnalysisResult> result = new List<FileAnalysisResult>();
+            return Task.Factory.StartNew(() => {
+                List<FileAnalysisResult> results = s.directoryFullSearch(path);
 
-            Thread t = new Thread(()=> {
-                callback(s.directoryFullSearch(path));
-            });
-            t.Start();
+                int key = 0;
 
-            return;
+                foreach (var result in results)
+                {
+                    if (result.Error != null)
+                    {
+                        result.Key = key;
+                        key++;
+                    }
+
+                }
+                //Some work...
+                return results;
+            }).Result;
         }
 
         public void fullScanStop()
@@ -33,6 +42,11 @@ namespace folder_clear
             {
                 s.isStop();
             }
+        }
+
+        internal bool delete(string path)
+        {
+            return FileUtil.delete(path);
         }
     }
 }

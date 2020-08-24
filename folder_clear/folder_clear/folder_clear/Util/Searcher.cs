@@ -27,9 +27,18 @@ namespace folder_clear.Util
             String[] files = FileUtil.fileCount(path).ToArray();
             foreach( string file in files ){
 
+
                 if (FileUtil.isDirectory(file)) // 디렉토리
                 {
-                    result.AddRange(directoryFullSearch(file));
+                    try
+                    {
+                        if (!file.Contains("RECYCLE"))
+                            result.AddRange(directoryFullSearch(file));
+                    }
+                    catch (Exception e)
+                    {
+
+                    }
                 }
                 else // 파일
                 {

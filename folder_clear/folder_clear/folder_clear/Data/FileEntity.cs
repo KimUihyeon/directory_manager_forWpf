@@ -1,4 +1,5 @@
-﻿using System;
+﻿using folder_clear.Common.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,7 +56,8 @@ namespace folder_clear.Data
             get => _순수파일명;
             set
             {
-                OnPropertyChanged(); _순수파일명 = value;
+                OnPropertyChanged();
+                _순수파일명 = value;
             }
         }
     }

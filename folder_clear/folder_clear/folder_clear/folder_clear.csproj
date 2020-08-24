@@ -58,10 +58,13 @@
     <Compile Include="Control\FileSearchControl.xaml.cs">
       <DependentUpon>FileSearchControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Convertor\NullToBoolConvert.cs" />
     <Compile Include="Data\FileAnalysisResult.cs" />
     <Compile Include="Service\FileService.cs" />
+    <Compile Include="Util\Class1.cs" />
     <Compile Include="Util\FileUtil.cs" />
     <Compile Include="Util\Searcher.cs" />
+    <Compile Include="ViewModel\FileVIewModel.cs" />
     <Page Include="Control\FileSearchControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -74,7 +77,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data\ModelBase.cs" />
+    <Compile Include="Data\Common\ModelBase.cs" />
     <Compile Include="Data\FileEntity.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
